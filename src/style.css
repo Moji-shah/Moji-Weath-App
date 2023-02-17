@@ -38,11 +38,18 @@ li {
   line-height: 1;
   font-weight: 400;
 }
- .units {
+.units {
   position: relative;
   font-size: 16px;
   top: -34px;
 }
 img {
   margin-top: -35px;
+}
+.active {
+  color: rgb(33, 33, 33);
+  cursor: default;
+}
+.active:hover {
+  text-decoration: none;
 }
