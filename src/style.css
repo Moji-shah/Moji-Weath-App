@@ -1,5 +1,10 @@
 body {
   font-family: arial, sans-serif;
+  background: radial-gradient(
+    592px at 48.2% 50%,
+    rgba(255, 255, 249, 0.6) 0%,
+    rgb(160, 199, 254) 74.6%
+  );
 }
 .wrapper {
   max-width: 600px;
@@ -8,7 +13,7 @@ body {
 
 .weather-app {
   padding: 20px;
-  border: 1px solid rgb(199, 188, 188);
+  border: 1px solid rgb(37, 6, 122);
   border-radius: 5px;
 }
 h1 {
