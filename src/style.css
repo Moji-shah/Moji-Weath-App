@@ -58,3 +58,6 @@ img {
 .active:hover {
   text-decoration: none;
 }
+.weather-forecast-date{
+  margin-bottom: 15px;
+}
