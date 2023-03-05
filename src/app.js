@@ -75,7 +75,6 @@ function getForecast(coordinates) {
 }
 
 function displayTemperature(response) {
-  console.log(response.data.time * 1000);
   let temperatureElement = document.querySelector("#temperature");
   let cityElement = document.querySelector("#city");
   let descriptionElement = document.querySelector("#description");
