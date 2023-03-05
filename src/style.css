@@ -29,7 +29,7 @@ ul {
 }
 li {
   list-style: none;
-  text-transform: capitalize;
+
   margin: 0;
   padding: 0;
   color: rgb(135, 135, 135);
@@ -58,6 +58,9 @@ img {
 .active:hover {
   text-decoration: none;
 }
-.weather-forecast-date{
+.weather-forecast-date {
   margin-bottom: 15px;
+}
+.li::first-letter {
+  text-transform: capitalize;
 }

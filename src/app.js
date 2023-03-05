@@ -1,6 +1,6 @@
 function formatDate(timestamp) {
   let date = new Date(timestamp);
-  let hours = data.getHours();
+  let hours = date.getHours();
   if (hours < 10) {
     hours = `0${hours}`;
   }
@@ -34,12 +34,11 @@ function dispayForecast(response) {
 
   let forecastHTML = `<div class="row">`;
 
-  forecast.forEach(function (forecastDay,index) {
-    if (index<6){ 
-
+  forecast.forEach(function (forecastDay, index) {
+    if (index < 6) {
       forecastHTML =
-      forecastHTML +
-      `
+        forecastHTML +
+        `
       <div class="col-2">
       <div class="weather-forecast-date">
       ${forecastDate(forecastDay.time)}
@@ -55,15 +54,15 @@ function dispayForecast(response) {
       <div class="weather-forecast-temperature">
       <span class="maximum-temperature"> ${Math.round(
         forecastDay.temperature.maximum
-        )}°</span>
+      )}°</span>
         <span class="minimum-temperature"> ${Math.round(
           forecastDay.temperature.minimum
-          )}° </span>
+        )}° </span>
           </div>
           </div>
           `;
-        }
-        });
+    }
+  });
 
   forecastHTML = forecastHTML + `</div>`;
   forecastElement.innerHTML = forecastHTML;
@@ -76,12 +75,14 @@ function getForecast(coordinates) {
 }
 
 function displayTemperature(response) {
+  console.log(response.data.time * 1000);
   let temperatureElement = document.querySelector("#temperature");
   let cityElement = document.querySelector("#city");
   let descriptionElement = document.querySelector("#description");
   let humidityElement = document.querySelector("#humidity");
   let windElement = document.querySelector("#wind");
   let iconElement = document.querySelector("#icon");
+  let dateElement = document.querySelector("#date");
 
   celsiusTemperature = response.data.temperature.current;
 
@@ -90,6 +91,8 @@ function displayTemperature(response) {
   descriptionElement.innerHTML = response.data.condition.description;
   humidityElement.innerHTML = response.data.temperature.humidity;
   windElement.innerHTML = Math.round(response.data.wind.speed);
+  dateElement.innerHTML = formatDate(response.data.time * 1000);
+
   iconElement.setAttribute(
     "src",
     `http://shecodes-assets.s3.amazonaws.com/api/weather/icons/${response.data.condition.icon}.png`
